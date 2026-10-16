@@ -1,0 +1,24 @@
+:root {
+  --bg-color: #171B1E;
+  --panel-bg: #1C2124;
+  --accent-color: #D65D2E;
+  --accent-secondary: #6CA1B8;
+  --text-main: #E4E1DB;
+  --text-dim: #74838B;
+  --border-color: #14181A;
+  --selection-bg: #2A3236;
+  --animation-speed: 75ms;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+}

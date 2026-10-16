@@ -1,0 +1,75 @@
+id: lumide_muse
+name: 'M.U.S.E. Player'
+description: 'Play your local music in Lumide, with status bar controls and synced lyrics.'
+entry_point: 'bin/main.dart'
+
+# Starts with Lumide so the status bar controls are always there. The audio
+# engine is only loaded when you play something.
+activation_events:
+  - 'onStartup'
+
+permissions:
+  # Reading your music library and the .lrc files next to your tracks.
+  - fileSystem:
+      - '${home}/**'
+  # macOS only: downloads the audio-only libmpv build once.
+  - network:
+      - 'https://github.com/media-kit/**'
+  # macOS only: installs and ad-hoc signs that libmpv build in the plugin's
+  # private storage.
+  - shell:
+      - 'cp'
+      - 'install_name_tool'
+      - 'codesign'
+
+configuration:
+  - key: muse.libraryPath
+    type: string
+    default: ''
+    title: 'Music Library Path'
+    description: 'Folder to load music from. If empty, M.U.S.E. asks for a folder the first time you scan.'
+  - key: muse.libmpvPath
+    type: string
+    default: ''
+    title: 'libmpv Path'
+    description: 'Custom libmpv library to use instead of the bundled (macOS) or system (Linux, Windows) one.'
+
+contributes:
+  commands:
+    - id: muse.openPlayer
+      title: 'MUSE: Open Player'
+      category: 'MUSE'
+    - id: muse.playPause
+      title: 'MUSE: Play/Pause'
+      category: 'MUSE'
+    - id: muse.next
+      title: 'MUSE: Next Track'
+      category: 'MUSE'
+    - id: muse.previous
+      title: 'MUSE: Previous Track'
+      category: 'MUSE'
+    - id: muse.toggleShuffle
+      title: 'MUSE: Toggle Shuffle'
+      category: 'MUSE'
+    - id: muse.cycleRepeat
+      title: 'MUSE: Cycle Repeat Mode'
+      category: 'MUSE'
+    - id: muse.toggleNowPlaying
+      title: 'MUSE: Toggle Lyrics in Status Bar'
+      category: 'MUSE'
+    - id: muse.showPlaylist
+      title: 'MUSE: Show Playlist'
+      category: 'MUSE'
+    - id: muse.showControls
+      title: 'MUSE: Show Controls'
+      category: 'MUSE'
+    - id: muse.scanLibrary
+      title: 'MUSE: Scan Music Library'
+      category: 'MUSE'
+  keybindings:
+    - command: muse.playPause
+      key: 'mod+alt+shift+p'
+    - command: muse.next
+      key: 'mod+alt+shift+right'
+    - command: muse.previous
+      key: 'mod+alt+shift+left'

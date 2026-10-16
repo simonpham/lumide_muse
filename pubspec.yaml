@@ -1,0 +1,34 @@
+name: lumide_muse
+description: M.U.S.E. music player for Lumide IDE. Play your local music library with status bar controls, a player panel, and synced .lrc lyrics.
+version: 1.0.0
+homepage: https://lumide.dev
+repository: https://github.com/simonpham/lumide_muse
+issue_tracker: https://github.com/simonpham/lumide_muse/issues
+
+topics:
+  - music
+  - audio
+  - lumide-plugin
+
+screenshots:
+  - description: The current lyric line and the pause button in the Lumide status bar.
+    path: doc/status_bar.png
+  - description: The controls menu with playback, shuffle, repeat and library actions.
+    path: doc/controls.png
+  - description: The playlist, with the track that is playing.
+    path: doc/playlist.png
+
+executables:
+  lumide_muse: main
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  lumide_api: ^1.12.0
+  media_kit: ^1.2.6
+  path: ^1.9.1
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.0

@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-color);
+  overflow: hidden;
+}
+
+.player-card {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 16px;
+  background: transparent;
+  animation: fadeIn 0.4s ease-out;
+  
+  /* Default Layout (Old Style: Vertical Stack) */
+  grid-template-areas:
+    "header"
+    "lyrics"
+    "progress"
+    "controls";
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-columns: 1fr;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.bottom-bar {
+  display: contents;
+}
+
+.header-section {
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.album-art {
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #1C2124, #2A3236);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.5);
+}
+
+.track-info h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.track-info p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.spacer {
+  display: none;
+}

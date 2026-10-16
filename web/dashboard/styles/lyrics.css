@@ -1,0 +1,37 @@
+.lyrics-container {
+  grid-area: lyrics;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.lyrics-track {
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.lyric-line {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin: 8px 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  min-height: 24px;
+  text-align: center;
+  width: 100%;
+  opacity: 0.3;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.lyric-line.active {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 1;
+}

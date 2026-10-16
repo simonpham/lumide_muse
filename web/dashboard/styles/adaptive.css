@@ -1,0 +1,98 @@
+/* --- Ultra-Compact Mode (Bar Style) --- */
+@media (max-width: 280px), (max-height: 480px) {
+  .player-card {
+    padding: 12px;
+    gap: 8px;
+    grid-template-areas:
+      "lyrics"
+      "progress"
+      "footer";
+    grid-template-rows: 1fr auto auto;
+  }
+
+  .bottom-bar {
+    display: flex;
+    grid-area: footer;
+    align-items: center;
+    gap: 12px;
+    padding-top: 4px;
+    border-top: none; /* Seekbar acts as divider */
+  }
+
+  .progress-section {
+    margin: 0 -12px; /* Pull into padding to go full-width */
+  }
+
+  .progress-bar {
+    height: 2px;
+    border-radius: 0;
+  }
+
+  .header-section {
+    flex-direction: row;
+    text-align: left;
+    gap: 8px;
+    grid-area: auto;
+  }
+
+  .album-art {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    box-shadow: none;
+  }
+
+  .track-info h1 { font-size: 14px; }
+  .track-info p { font-size: 11px; }
+
+  .spacer { display: block; flex: 1; }
+
+  .controls {
+    gap: 8px;
+    grid-area: auto;
+  }
+
+  .btn-play {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* --- Wide Mode (Studio Style) --- */
+@media (min-width: 600px) and (min-height: 481px) {
+  .player-card {
+    padding: 32px;
+    grid-template-areas:
+      "header lyrics"
+      "progress progress"
+      "controls controls";
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 1fr auto auto;
+    gap: 32px;
+  }
+
+  .header-section {
+    border-right: 1px solid var(--border-color);
+    padding-right: 32px;
+    justify-content: center;
+  }
+
+  .album-art {
+    width: 200px;
+    height: 200px;
+    font-size: 80px;
+  }
+
+  .lyrics-container {
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+
+  .track-info h1 { font-size: 20px; }
+  
+  .progress-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+  }
+}
